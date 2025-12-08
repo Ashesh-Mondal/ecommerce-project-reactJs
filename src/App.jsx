@@ -1,10 +1,21 @@
+import { Routes, Route } from "react-router";
 import HomePage from "./pages/HomePage";
 import "./App.css";
 
 function App() {
   return (
     <>
-      <HomePage />
+      <Routes>
+        {/* 
+          path is the URL path of the page that we want to route 
+          element is the component that we want to load
+          This tells react that whenever we use only '/' in the url then open this HomePage component
+          path="/" is same as that of index
+        */}
+        {/* <Route path="/" element={<HomePage />} /> */}
+        <Route index element={<HomePage />} />
+        <Route path="/checkout" element={<div>Test checkout page</div>} />
+      </Routes>
     </>
   );
 }
