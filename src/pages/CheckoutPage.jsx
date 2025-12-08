@@ -4,13 +4,13 @@ import "./checkout-header.css";
 function CheckoutPage() {
   return (
     <>
-      {/* Since React shares only a single HTML page i.e the index.html therefore the title of every single page is given in the top and the title from the index page is removed. */}
+      {/* Since React shares only a single HTML page i.e the / therefore the title of every single page is given in the top and the title from the index page is removed. */}
       <title>Checkout</title>
 
       <div className="checkout-header">
         <div className="header-content">
           <div className="checkout-header-left-section">
-            <a href="index.html">
+            <a href="/">
               <img className="logo" src="images/logo.png" />
               <img className="mobile-logo" src="images/mobile-logo.png" />
             </a>
@@ -18,7 +18,7 @@ function CheckoutPage() {
 
           <div className="checkout-header-middle-section">
             Checkout (
-            <a className="return-to-home-link" href="index.html">
+            <a className="return-to-home-link" href="/">
               3 items
             </a>
             )
