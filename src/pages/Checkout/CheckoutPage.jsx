@@ -4,6 +4,7 @@ import "./CheckoutPage.css";
 function CheckoutPage() {
   return (
     <>
+      <link rel="icon" type="image/svg+xml" href="/cart-favicon.png" />
       {/* Since React shares only a single HTML page i.e the / therefore the title of every single page is given in the top and the title from the index page is removed. */}
       <title>Checkout</title>
 
