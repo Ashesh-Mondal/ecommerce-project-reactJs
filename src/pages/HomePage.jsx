@@ -6,17 +6,12 @@ import "./HomePage.css";
 
 function HomePage() {
   const [products, setProducts] = useState([]);
-  const [cart, setCart] = useState([]);
+
   useEffect(() => {
     // axios is a liubrary used to fetch data more easily
     axios.get("/api/products").then((response) => {
       const products = response.data;
       setProducts(products);
-    });
-
-    axios.get("/api/cart-items").then((response) => {
-      const cartData = response.data;
-      setCart(cartData);
     });
   }, []);
 
