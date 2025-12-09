@@ -1,4 +1,6 @@
+import { formatMoney } from "../utils/money";
 import CheckmarkIcon from "../assets/images/icons/checkmark.png";
+
 export default function Product({ id, name, image, rating, price }) {
   return (
     <div key={id} className="product-container">
@@ -23,7 +25,7 @@ export default function Product({ id, name, image, rating, price }) {
       </div>
 
       {/* toFixed() is a JavaScript method used to get a decimal value up to two decimal places. */}
-      <div className="product-price">${(price / 100).toFixed(2)}</div>
+      <div className="product-price">{formatMoney(price)}</div>
 
       <div className="product-quantity-container">
         <select>
