@@ -4,7 +4,7 @@ import { Header } from "../components/Header";
 import Product from "../components/Product";
 import "./HomePage.css";
 
-function HomePage() {
+function HomePage({ cart }) {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
