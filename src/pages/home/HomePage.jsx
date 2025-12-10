@@ -7,13 +7,22 @@ import ProductsGrid from "./ProductsGrid";
 function HomePage({ cart }) {
   const [products, setProducts] = useState([]);
 
+  // useEffect(() => {
+  //   // axios is a liubrary used to fetch data more easily
+  //   axios.get("/api/products").then((response) => {
+  //     const products = response.data;
+  //     setProducts(products);
+  //   });
+  // }, []);
+
+  // Using async await how to fetch data
   useEffect(() => {
-    // axios is a liubrary used to fetch data more easily
-    axios.get("/api/products").then((response) => {
-      const products = response.data;
-      setProducts(products);
-    });
-  }, []);
+    const fetchHomeData = async () => {
+      const response = await axios.get("/api/products");
+      setProducts(response.data);
+    };
+    fetchHomeData();
+  },[]);
 
   return (
     <>
