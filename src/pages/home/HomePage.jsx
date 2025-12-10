@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Header } from "../components/Header";
-import Product from "../components/Product";
+import { Header } from "../../components/Header";
 import "./HomePage.css";
+import ProductsGrid from "./ProductsGrid";
 
 function HomePage({ cart }) {
   const [products, setProducts] = useState([]);
@@ -26,7 +26,7 @@ function HomePage({ cart }) {
         <div className="products-grid">
           {products.map((product) => {
             return (
-              <Product
+              <ProductsGrid
                 key={product.id}
                 name={product.name}
                 image={product.image}

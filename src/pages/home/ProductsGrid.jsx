@@ -1,7 +1,8 @@
-import { formatMoney } from "../utils/money";
-import CheckmarkIcon from "../assets/images/icons/checkmark.png";
 
-export default function Product({ id, name, image, rating, price }) {
+import { formatMoney } from "../../utils/money";
+import CheckmarkIcon from "../../assets/images/icons/checkmark.png";
+
+export default function ProductsGrid({ id, name, image, rating, price }) {
   return (
     <div key={id} className="product-container">
       <div className="product-image-container">

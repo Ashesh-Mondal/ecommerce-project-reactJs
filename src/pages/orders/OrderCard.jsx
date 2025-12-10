@@ -1,6 +1,6 @@
 import dayjs from "dayjs";
 import ProductRow from "./ProductRow";
-import { formatMoney } from "../utils/money";
+import { formatMoney } from "../../utils/money";
 
 export default function OrderCard({ order }) {
   return (

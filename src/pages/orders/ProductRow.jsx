@@ -1,5 +1,5 @@
 import dayjs from "dayjs";
-import BuyAgainIcon from "../assets/images/icons/buy-again.png";
+import BuyAgainIcon from "../../assets/images/icons/buy-again.png";
 
 export default function ProductRow({ productItem }) {
   return (
