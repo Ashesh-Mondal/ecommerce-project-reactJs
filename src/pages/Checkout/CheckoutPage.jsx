@@ -27,7 +27,7 @@ function CheckoutPage({ cart }) {
       {/* Since React shares only a single HTML page i.e the / therefore the title of every single page is given in the top and the title from the index page is removed. */}
       <title>Checkout</title>
 
-      <CheckoutHeader />
+      <CheckoutHeader cart={cart} />
 
       <div className="checkout-page">
         <div className="page-title">Review your order</div>

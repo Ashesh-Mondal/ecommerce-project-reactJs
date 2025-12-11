@@ -1,4 +1,5 @@
 import dayjs from "dayjs";
+import { Link } from "react-router";
 import BuyAgainIcon from "../../assets/images/icons/buy-again.png";
 
 export default function ProductRow({ productItem }) {
@@ -11,7 +12,8 @@ export default function ProductRow({ productItem }) {
       <div className="product-details">
         <div className="product-name">{productItem.product.name}</div>
         <div className="product-delivery-date">
-          Arriving on: {dayjs(productItem.estimatedDeliveryTimeMs).format("MMMM DD")}
+          Arriving on:{" "}
+          {dayjs(productItem.estimatedDeliveryTimeMs).format("MMMM DD")}
         </div>
         <div className="product-quantity">Quantity: {productItem.quantity}</div>
         <button className="buy-again-button button-primary">
@@ -21,11 +23,11 @@ export default function ProductRow({ productItem }) {
       </div>
 
       <div className="product-actions">
-        <a href="/tracking">
+        <Link to="/tracking">
           <button className="track-package-button button-secondary">
             Track package
           </button>
-        </a>
+        </Link>
       </div>
     </>
   );

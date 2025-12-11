@@ -13,6 +13,7 @@ function OrdersPage({ cart }) {
     };
     fetchOrdersData();
   }, []);
+
   return (
     <>
       {/* Since the icon also changes in the titke bar according the page that's the reason why we are using this in every page instead of using it in index.html */}
