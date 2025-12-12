@@ -1,7 +1,7 @@
 import { Header } from "../components/Header";
 import "./PageNotFound.css";
 
-export default function PageNotFound() {
+export default function PageNotFound({ cart }) {
   return (
     <>
       <link rel="icon" type="image/svg+xml" href="home-favicon.png" />
@@ -10,7 +10,7 @@ export default function PageNotFound() {
 
       {/* Remember to add the <Header> so it looks like it's
       on the same website. */}
-      <Header />
+      <Header cart={cart} />
 
       {/* You can style this message however you want. */}
       <div className="not-found-message">Page not found</div>
