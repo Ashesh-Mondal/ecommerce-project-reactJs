@@ -6,7 +6,6 @@ export default function OrderSummary({
   cart,
   deliveryOptions,
   loadCart,
-  paymentSummaryResponse,
 }) {
   return (
     <>
@@ -21,13 +20,12 @@ export default function OrderSummary({
                 />
 
                 <div className="cart-item-details-grid">
-                  <CartItemDetails cartItem={cartItem} />
+                  <CartItemDetails cartItem={cartItem} loadCart={loadCart} />
 
                   <DeliveryOptions
                     cartItem={cartItem}
                     deliveryOptions={deliveryOptions}
                     loadCart={loadCart}
-                    paymentSummaryResponse={paymentSummaryResponse}
                   />
                 </div>
               </div>
