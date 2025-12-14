@@ -4,7 +4,7 @@ import { Header } from "../../components/Header";
 import "./HomePage.css";
 import ProductsGrid from "./ProductsGrid";
 
-function HomePage({ cart }) {
+function HomePage({ cart, loadCart }) {
   const [products, setProducts] = useState([]);
 
   // useEffect(() => {
@@ -22,7 +22,7 @@ function HomePage({ cart }) {
       setProducts(response.data);
     };
     fetchHomeData();
-  },[]);
+  }, []);
 
   return (
     <>
@@ -37,10 +37,8 @@ function HomePage({ cart }) {
             return (
               <ProductsGrid
                 key={product.id}
-                name={product.name}
-                image={product.image}
-                rating={product.rating}
-                price={product.priceCents}
+                product={product}
+                loadCart={loadCart}
               />
             );
           })}
