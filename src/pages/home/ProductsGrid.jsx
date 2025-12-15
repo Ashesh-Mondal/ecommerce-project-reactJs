@@ -4,12 +4,13 @@ import { formatMoney } from "../../utils/money";
 import CheckmarkIcon from "../../assets/images/icons/checkmark.png";
 
 export default function ProductsGrid({ product, loadCart }) {
+  const [showAddedMessage, setShowAddedMessage] = useState(false);
   const [quantity, setQuantity] = useState(1);
 
   const handleQuantity = (event) => {
     const selectedQuantity = Number(event.target.value);
     setQuantity(selectedQuantity);
-  }
+  };
 
   const handleAddToCart = async () => {
     await axios.post("/api/cart-items", {
@@ -18,7 +19,13 @@ export default function ProductsGrid({ product, loadCart }) {
       quantity,
     });
     await loadCart();
-  }
+
+    setShowAddedMessage(true);
+
+    setTimeout(() => {
+      setShowAddedMessage(false);
+    }, 2000);
+  };
 
   return (
     <div className="product-container">
@@ -62,7 +69,10 @@ export default function ProductsGrid({ product, loadCart }) {
 
       <div className="product-spacer"></div>
 
-      <div className="added-to-cart">
+      <div
+        className="added-to-cart"
+        style={{ opacity: showAddedMessage ? 1 : 0 }}
+      >
         <img src={CheckmarkIcon} />
         Added
       </div>

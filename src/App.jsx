@@ -10,6 +10,10 @@ import "./App.css";
 
 function App() {
   const [cart, setCart] = useState([]);
+
+  // makes axios available in the console
+  window.axios = axios;
+
   const loadCart = async () => {
     const response = await axios.get("/api/cart-items?expand=product");
     setCart(response.data);
@@ -33,7 +37,10 @@ function App() {
           path="/checkout"
           element={<CheckoutPage cart={cart} loadCart={loadCart} />}
         />
-        <Route path="/orders" element={<OrdersPage cart={cart} loadCart={loadCart} />} />
+        <Route
+          path="/orders"
+          element={<OrdersPage cart={cart} loadCart={loadCart} />}
+        />
         <Route
           path="/tracking/:orderId/:productId"
           element={<TrackingPage cart={cart} />}
