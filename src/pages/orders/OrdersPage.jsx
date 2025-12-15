@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import OrderCard from "./OrderCard";
 import "./OrdersPage.css";
 
-function OrdersPage({ cart }) {
+function OrdersPage({ cart, loadCart }) {
   const [orders, setOrders] = useState([]);
   useEffect(() => {
     const fetchOrdersData = async () => {
@@ -27,7 +27,9 @@ function OrdersPage({ cart }) {
 
         <div className="orders-grid">
           {orders.map((order) => {
-            return <OrderCard key={order.id} order={order} />;
+            return (
+              <OrderCard key={order.id} order={order} loadCart={loadCart} />
+            );
           })}
         </div>
       </div>

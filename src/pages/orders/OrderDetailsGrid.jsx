@@ -1,6 +1,6 @@
 import ProductRow from "./ProductRow";
 
-export default function OrderDetailsGrid({ order }) {
+export default function OrderDetailsGrid({ order, loadCart }) {
   return (
     <div className="order-details-grid">
       {order.products.map((productItem) => {
@@ -9,6 +9,7 @@ export default function OrderDetailsGrid({ order }) {
             key={productItem.product.id}
             productItem={productItem}
             order={order}
+            loadCart={loadCart}
           />
         );
       })}
