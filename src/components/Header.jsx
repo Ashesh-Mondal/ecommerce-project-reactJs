@@ -1,4 +1,5 @@
-import { NavLink } from "react-router";
+import { NavLink, useNavigate, useSearchParams } from "react-router";
+import { useState } from "react";
 // To use files inside of src/assets we must import it first to use it.
 // This is done because Inside src, everything is processed by Webpack/Vite bundler.
 // Importing tells the bundler to include the file in our app
@@ -9,6 +10,21 @@ import SearchIcon from "../assets/images/icons/search-icon.png";
 import "./Header.css";
 
 export function Header({ cart }) {
+  const navigate = useNavigate();
+
+  const [searchParams] = useSearchParams();
+  const searchText = searchParams.get("search");
+  const [search, setSearch] = useState(searchText || "");
+
+  const handleSearchBoxText = (e) => {
+    setSearch(e.target.value);
+  };
+
+  const handleSearchButton = () => {
+    navigate(`/?search=${search}`);
+    setSearch("");
+  };
+
   let totalQuantity = 0;
   cart.forEach((cartItem) => {
     totalQuantity += cartItem.quantity;
@@ -27,9 +43,15 @@ export function Header({ cart }) {
         </div>
 
         <div className="middle-section">
-          <input className="search-bar" type="text" placeholder="Search" />
+          <input
+            className="search-bar"
+            type="text"
+            placeholder="Search"
+            value={search}
+            onChange={handleSearchBoxText}
+          />
 
-          <button className="search-button">
+          <button className="search-button" onClick={handleSearchButton}>
             <img className="search-icon" src={SearchIcon} />
           </button>
         </div>
