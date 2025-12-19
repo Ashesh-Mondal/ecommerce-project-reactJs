@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router";
 import { Header } from "../../components/Header";
 import "./HomePage.css";
-import ProductsGrid from "./ProductsGrid";
+import { ProductsGrid } from "./ProductsGrid";
 
 function HomePage({ cart, loadCart }) {
   const [products, setProducts] = useState([]);
@@ -37,19 +37,8 @@ function HomePage({ cart, loadCart }) {
       <title>Ecommerce Project</title>
 
       <Header cart={cart} />
-
       <div className="home-page">
-        <div className="products-grid">
-          {products.map((product) => {
-            return (
-              <ProductsGrid
-                key={product.id}
-                product={product}
-                loadCart={loadCart}
-              />
-            );
-          })}
-        </div>
+        <ProductsGrid products={products} loadCart={loadCart} />
       </div>
     </>
   );
