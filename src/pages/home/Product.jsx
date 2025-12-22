@@ -85,6 +85,7 @@ export default function Product({ product, loadCart }) {
 
       <button
         className="add-to-cart-button button-primary"
+        data-testid="add-to-cart-button"
         onClick={handleAddToCart}
       >
         Add to Cart
